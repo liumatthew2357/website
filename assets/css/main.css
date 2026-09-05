@@ -1,0 +1,1810 @@
+:root {
+  color-scheme: dark;
+  --header-bg: #c1e2c8;
+  --header-text: #111713;
+  --bg: #373837;
+  --bg-alt: #303130;
+  --text: #f7f7f4;
+  --muted: #d3d6d2;
+  --accent: #bfe3c7;
+  --line: #5a5c5a;
+  --max: 76rem;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --header-bg: #b9ddc1;
+  --header-text: #101511;
+  --bg: #f4f6f4;
+  --bg-alt: #e8eee9;
+  --text: #202421;
+  --muted: #545b56;
+  --accent: #286b3b;
+  --line: #cbd2cc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Lato, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+}
+
+.shell {
+  width: min(calc(100% - 2.5rem), var(--max));
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  left: 1rem;
+  top: -4rem;
+  padding: 0.7rem 1rem;
+  background: #fff;
+  color: #111;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--header-bg);
+  color: var(--header-text);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16);
+}
+
+.nav {
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.brand {
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.7rem;
+}
+
+.site-menu > a {
+  position: relative;
+  padding-block: 1.55rem 1.3rem;
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-menu > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: transparent;
+}
+
+.site-menu > a:hover::after,
+.site-menu > a:focus-visible::after,
+.site-menu > a.active::after {
+  background: var(--header-text);
+}
+
+.theme-toggle,
+.menu-toggle {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.hero {
+  min-height: clamp(31rem, 70vh, 47rem);
+  display: grid;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+  background: url("../images/matthew-mountains.webp") center 62% / cover
+    no-repeat;
+  color: #fff;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(rgba(16, 20, 22, 0.35), rgba(16, 20, 22, 0.58));
+}
+
+.hero-content {
+  padding-block: 5rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+}
+
+.hero h1 {
+  margin: 0 0 1.35rem;
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", serif;
+  font-size: clamp(2.6rem, 6vw, 4.7rem);
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.hero p {
+  margin: 0.35rem 0;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 600;
+}
+
+.section {
+  padding-block: 4.5rem;
+  text-align: center;
+}
+
+.section h1,
+.section h2 {
+  margin: 0 0 0.55rem;
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", serif;
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  line-height: 1.15;
+}
+
+.intro {
+  max-width: var(--max);
+}
+
+.intro p {
+  margin: 0.8rem 0;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.intro-layout {
+  display: grid;
+  grid-template-columns: minmax(13rem, 20rem) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.intro-photo-frame {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+}
+
+.intro-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  transform: scale(3.5) translateX(2.3%) translateY(-7%);
+}
+
+.intro-copy {
+  text-align: left;
+}
+
+.intro-copy h2 {
+  text-align: left;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+  border-block: 1px solid var(--line);
+}
+
+.link-columns {
+  margin-top: 2.8rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.link-columns article {
+  display: flex;
+  flex-direction: column;
+  padding: 0.6rem 2rem 1.2rem;
+  border-right: 1px solid var(--line);
+}
+
+.link-columns article:last-child {
+  border-right: 0;
+}
+
+.link-columns h3 {
+  margin: 0 0 0.65rem;
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", serif;
+  font-size: 1.25rem;
+}
+
+.link-columns p {
+  margin: 0 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.link-columns a {
+  margin-top: auto;
+  color: var(--accent);
+  font-weight: 700;
+  text-underline-offset: 0.25rem;
+}
+
+.contact-section {
+  padding-block: 4.5rem;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.contact-page {
+  min-height: calc(100vh - 9rem);
+}
+
+.contact-heading {
+  margin-bottom: 3.5rem;
+  text-align: center;
+}
+
+.contact-heading h1,
+.contact-heading h2 {
+  margin: 0 0 0.3rem;
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", serif;
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  line-height: 1.15;
+}
+
+.contact-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(3rem, 10vw, 8rem);
+  row-gap: 3.5rem;
+}
+
+.contact-item {
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.contact-item h3 {
+  margin: 0 0 0.8rem;
+  font-family: Lato, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+
+.contact-item p {
+  margin: 0;
+  color: var(--text);
+}
+
+.contact-item div > a {
+  display: block;
+  width: fit-content;
+  margin-top: 0.5rem;
+  color: var(--text);
+  overflow-wrap: anywhere;
+  text-underline-offset: 0.2rem;
+}
+
+.contact-icon {
+  display: grid;
+  place-items: center;
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  transition:
+    transform 150ms ease,
+    filter 150ms ease;
+}
+
+a.contact-icon:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.contact-icon svg {
+  width: 1.65rem;
+  height: 1.65rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-icon .icon-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.contact-icon span {
+  font-weight: 800;
+}
+
+.contact-icon-neutral {
+  background: #65696c;
+}
+
+.contact-icon-location {
+  background: #42b96e;
+}
+
+.contact-icon-linkedin {
+  background: #2867b2;
+  font-size: 1.35rem;
+}
+
+.contact-icon-instagram {
+  background: #e90062;
+}
+
+.contact-icon-wca {
+  background: transparent;
+}
+
+.contact-icon-wca img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  background: var(--header-bg);
+  color: var(--header-text);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0.2rem;
+}
+
+.education-page {
+  padding-block: 4.5rem;
+  text-align: left;
+}
+
+.education-page > h1 {
+  margin: 0 0 2.5rem;
+  font-family:
+    "Palatino Linotype",
+    Palatino,
+    "Book Antiqua",
+    serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  text-align: center;
+}
+
+.education-page > section {
+  max-width: 58rem;
+  margin-bottom: 2.75rem;
+}
+
+.education-page h2 {
+  margin: 0 0 0.25rem;
+  font-family:
+    "Palatino Linotype",
+    Palatino,
+    "Book Antiqua",
+    serif;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  line-height: 1.25;
+}
+
+.education-page ul {
+  padding-left: 1.35rem;
+}
+
+.education-page li + li {
+  margin-top: 0.35rem;
+}
+
+.education-narrative {
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.education-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: none !important;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: 1rem;
+}
+
+.education-gallery figure {
+  margin: 0;
+}
+
+.education-gallery figcaption {
+  margin-top: 0.9rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.education-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.education-gallery a {
+  color: var(--accent);
+  font-weight: 700;
+  text-underline-offset: 0.2rem;
+}
+
+.caption-arrow {
+  color: #ef3f3f;
+  font-weight: 800;
+}
+
+.academy-page {
+  padding-block: 4.5rem;
+}
+
+.academy-intro {
+  max-width: 50rem;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.academy-intro > p:first-child {
+  margin-bottom: 0.35rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.academy-intro h1,
+.academy-lessons h2 {
+  font-family:
+    "Palatino Linotype",
+    Palatino,
+    "Book Antiqua",
+    serif;
+}
+
+.academy-intro h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+}
+
+.academy-intro > p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.academy-founder {
+  display: grid;
+  grid-template-columns: minmax(14rem, 22rem) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+.academy-logo-frame {
+  padding: clamp(1rem, 2vw, 1.5rem);
+  background: #303130;
+}
+
+.academy-logo-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.academy-founder-quote {
+  margin: 0;
+  text-align: left;
+}
+
+.academy-founder-quote h2 {
+  margin: 0 0 1.25rem;
+  font-family:
+    "Palatino Linotype",
+    Palatino,
+    "Book Antiqua",
+    serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-style: normal;
+  line-height: 1.15;
+}
+
+.academy-founder-quote p {
+  margin: 0 0 1.15rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.academy-founder-quote a {
+  color: var(--accent);
+  font-weight: 700;
+  text-underline-offset: 0.2rem;
+}
+
+.academy-founder-quote footer {
+  display: grid;
+  gap: 0.1rem;
+  margin-top: 1.75rem;
+  font-style: normal;
+}
+
+.academy-founder-quote cite {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.academy-founder-quote footer span {
+  color: var(--muted);
+}
+
+.academy-lessons {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 1.15fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+  margin-bottom: 3rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--bg-alt);
+  border-block: 1px solid var(--line);
+}
+
+.academy-lessons-copy {
+  text-align: left;
+}
+
+.academy-lessons h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.academy-lessons-copy p {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+}
+
+.academy-video {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+}
+
+.academy-video img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.academy-video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.22);
+  transition: background 150ms ease;
+}
+
+.academy-video:hover::after,
+.academy-video:focus-visible::after {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.academy-video-play {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 3.2rem;
+  padding-left: 0.2rem;
+  border-radius: 0.8rem;
+  background: #ff0033;
+  font-size: 1.7rem;
+  transform: translate(-50%, -50%);
+}
+
+.academy-video-label {
+  position: absolute;
+  z-index: 1;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 0.35rem;
+  background: rgba(0, 0, 0, 0.78);
+  font-weight: 700;
+}
+
+.speedcubing-intro {
+  text-align: center;
+}
+
+.speedcubing-intro h1,
+.section-heading h2,
+.competition-copy h2 {
+  font-family:
+    "Palatino Linotype",
+    Palatino,
+    "Book Antiqua",
+    serif;
+}
+
+.speedcubing-intro h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  line-height: 1.05;
+}
+
+.speedcubing-intro .hero-lede {
+  margin-inline: auto;
+}
+
+.speedcubing-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  margin-top: 2.5rem;
+}
+
+.speedcubing-wca-link {
+  text-align: left;
+}
+
+.speedcubing-actions .button {
+  margin-top: 0;
+}
+
+.rankings-section,
+.cubing-videos {
+  padding-block: 4.5rem;
+}
+
+.section-heading {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.section-heading h2 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  line-height: 1.15;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.rankings-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+}
+
+.ranking-item {
+  padding-inline: clamp(1rem, 2.5vw, 2rem);
+  text-align: center;
+  border-right: 1px solid var(--line);
+}
+
+.ranking-item:last-child {
+  border-right: 0;
+}
+
+.ranking-item h3 {
+  min-height: 3rem;
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+}
+
+.ranking-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.ranking-item .cube-image {
+  margin-inline: auto;
+}
+
+.ranking-item .cube-image-5 {
+  transform: scale(0.94);
+}
+
+.ranking-item .cube-image-6 {
+  transform: scale(1.1);
+}
+
+.ranking-item .cube-image-7 {
+  transform: scale(1);
+}
+
+.ranking-number {
+  margin: 1rem 0 0;
+  color: var(--accent);
+  font-family:
+    "Palatino Linotype",
+    Palatino,
+    "Book Antiqua",
+    serif;
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ranking-item p:not(.ranking-number) {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.ranking-item strong {
+  color: var(--accent);
+}
+
+.competition-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
+  gap: clamp(3rem, 7vw, 6rem);
+  align-items: start;
+}
+
+.competition-copy h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  line-height: 1.15;
+}
+
+.competition-copy p {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+}
+
+.competition-copy a {
+  color: var(--accent);
+  font-weight: 700;
+  text-underline-offset: 0.2rem;
+}
+
+.competition-gallery {
+  display: grid;
+  grid-template-columns: 1.35fr 0.8fr;
+  gap: 1rem;
+}
+
+.competition-gallery figure {
+  margin: 0;
+}
+
+.competition-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.competition-gallery figure:last-child img {
+  object-position: center top;
+}
+
+.competition-gallery figcaption {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.cubing-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.interest-index-heading,
+.interest-page-heading {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.interest-index-heading h1,
+.interest-page-heading h1,
+.interest-links h2,
+.chess-notes h2,
+.sheet-heading h2,
+.piano-intro h2 {
+  font-family:
+    "Palatino Linotype",
+    Palatino,
+    "Book Antiqua",
+    serif;
+}
+
+.interest-index-heading h1,
+.interest-page-heading h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  line-height: 1.05;
+}
+
+.interest-index-heading .hero-lede,
+.interest-page-heading .hero-lede {
+  margin-inline: auto;
+}
+
+.more-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.more-buttons .button {
+  min-width: 9rem;
+  margin-top: 0;
+  text-align: center;
+}
+
+.interest-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.interest-links article {
+  display: flex;
+  flex-direction: column;
+  min-height: 14rem;
+  padding: 2rem;
+  border-right: 1px solid var(--line);
+}
+
+.interest-links article:last-child {
+  border-right: 0;
+}
+
+.interest-links h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.75rem;
+}
+
+.interest-links p {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+}
+
+.interest-links a {
+  width: fit-content;
+  margin-top: auto;
+  color: var(--accent);
+  font-weight: 700;
+  text-underline-offset: 0.2rem;
+}
+
+.chess-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.chess-notes h2,
+.sheet-heading h2,
+.piano-intro h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.game-details {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0 0 1.5rem;
+  padding-block: 1rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.game-details div {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.game-details dt {
+  font-weight: 700;
+}
+
+.game-details dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+.chess-notes p,
+.chess-notes li,
+.piano-intro p {
+  color: var(--muted);
+}
+
+.chess-notes a {
+  color: var(--accent);
+  font-weight: 700;
+  text-underline-offset: 0.2rem;
+}
+
+.chess-notes .button {
+  color: var(--header-text);
+  text-decoration: none;
+}
+
+.chess-notes ul {
+  text-align: left;
+}
+
+.chess-moves {
+  line-height: 1.7;
+}
+
+.chess-animation {
+  position: sticky;
+  top: 6rem;
+  margin: 0;
+}
+
+.chess-animation img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.chess-animation figcaption {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.sheet-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.sheet-heading h2,
+.sheet-heading .button {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.swimming-sheet {
+  display: block;
+  width: 100%;
+  height: min(72vh, 52rem);
+  min-height: 34rem;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.piano-intro {
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.piano-feature {
+  padding-block: 4.5rem;
+}
+
+.piano-feature-layout {
+  display: grid;
+  grid-template-columns: minmax(20rem, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.piano-repertoire {
+  text-align: left;
+}
+
+.piano-repertoire h2 {
+  margin: 0 0 1.25rem;
+  font-family:
+    "Palatino Linotype",
+    Palatino,
+    "Book Antiqua",
+    serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.piano-repertoire ul {
+  margin: 0;
+  padding-left: 1.3rem;
+}
+
+.piano-repertoire li + li {
+  margin-top: 0.9rem;
+}
+
+.piano-repertoire span {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.projects-intro {
+  text-align: center;
+}
+
+.projects-intro h1,
+.project-feature h2,
+.document-redirect h1 {
+  font-family:
+    "Palatino Linotype",
+    Palatino,
+    "Book Antiqua",
+    serif;
+}
+
+.projects-intro h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  line-height: 1.05;
+}
+
+.projects-intro .hero-lede {
+  margin-inline: auto;
+}
+
+.project-feature {
+  padding-block: 4.5rem;
+}
+
+.project-feature-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.85fr);
+  gap: clamp(3rem, 7vw, 6rem);
+  align-items: center;
+}
+
+.project-feature-copy h2,
+.prime-preview-heading h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  line-height: 1.15;
+}
+
+.project-date {
+  margin: 0 0 0.75rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.project-feature-copy > p:not(.project-date),
+.prime-preview-heading p {
+  color: var(--muted);
+}
+
+.prediction-preview {
+  margin: 0;
+}
+
+.prediction-preview img,
+.prime-preview-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.prediction-preview figcaption {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.prime-preview-heading {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(2rem, 7vw, 6rem);
+  align-items: end;
+  margin-bottom: 2.5rem;
+}
+
+.prime-preview-heading p {
+  max-width: 38rem;
+  margin: 0;
+}
+
+.prime-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.prime-preview-grid figure {
+  margin: 0;
+}
+
+.prime-preview-grid img {
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+.prime-preview-grid .prime-image-dark {
+  background: #1d1f1e;
+}
+
+.prime-preview-grid figcaption {
+  margin-top: 0.85rem;
+}
+
+.prime-preview-grid figcaption strong,
+.prime-preview-grid figcaption span {
+  display: block;
+}
+
+.prime-preview-grid figcaption span {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.prime-preview-note {
+  margin: 3rem 0 0;
+  color: var(--accent);
+  font-weight: 700;
+  text-align: center;
+}
+
+.document-redirect {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.document-redirect h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.document-redirect a {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.prime-museum-intro {
+  text-align: center;
+}
+
+.prime-museum-intro h1,
+.museum-heading h2 {
+  font-family:
+    "Palatino Linotype",
+    Palatino,
+    "Book Antiqua",
+    serif;
+}
+
+.prime-museum-intro h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  line-height: 1.05;
+}
+
+.prime-museum-intro .hero-lede {
+  margin-inline: auto;
+}
+
+.museum-section {
+  padding-block: 4.5rem;
+}
+
+.museum-heading {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.museum-heading h2 {
+  margin: 0 0 0.45rem;
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  line-height: 1.15;
+}
+
+.museum-heading p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.visual-prime-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.visual-prime {
+  display: flex;
+  flex-direction: column;
+}
+
+.visual-prime img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 0.78;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.visual-prime h3 {
+  margin: 1rem 0 0.35rem;
+  font-family:
+    "Palatino Linotype",
+    Palatino,
+    "Book Antiqua",
+    serif;
+  font-size: 1.35rem;
+}
+
+.visual-prime p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.visual-prime > a,
+.museum-links {
+  margin-top: auto;
+}
+
+.visual-prime a {
+  width: fit-content;
+  color: var(--accent);
+  font-weight: 700;
+  text-underline-offset: 0.2rem;
+}
+
+.museum-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.museum-list-layout {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.65fr) minmax(0, 1.35fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: start;
+}
+
+.museum-heading-left {
+  margin: 0;
+  text-align: left;
+}
+
+.museum-document-list {
+  border-top: 1px solid var(--line);
+}
+
+.museum-document-list > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+}
+
+.museum-document-list > a:hover strong,
+.museum-document-list > a:focus-visible strong {
+  color: var(--accent);
+}
+
+.museum-document-list span,
+.museum-document-list strong,
+.museum-document-list small {
+  display: block;
+}
+
+.museum-document-list small {
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.museum-document-list em {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 58rem) {
+  .rankings-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2.5rem;
+  }
+
+  .ranking-item:nth-child(2) {
+    border-right: 0;
+  }
+
+  .competition-section {
+    grid-template-columns: 1fr;
+  }
+
+  .chess-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .piano-feature-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .project-feature-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .museum-list-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .chess-animation {
+    position: static;
+    width: min(100%, 34rem);
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 38rem) {
+  .speedcubing-actions {
+    flex-direction: column;
+  }
+
+  .rankings-grid,
+  .cubing-video-grid,
+  .competition-gallery,
+  .interest-links {
+    grid-template-columns: 1fr;
+  }
+
+  .prime-preview-heading,
+  .prime-preview-grid,
+  .visual-prime-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .interest-links article {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .interest-links article:last-child {
+    border-bottom: 0;
+  }
+
+  .game-details div {
+    grid-template-columns: 1fr;
+    gap: 0.05rem;
+  }
+
+  .sheet-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .swimming-sheet {
+    min-height: 28rem;
+  }
+
+  .ranking-item {
+    padding: 0 0 2rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ranking-item:last-child {
+    border-bottom: 0;
+  }
+
+  .competition-gallery img {
+    height: auto;
+    max-height: 28rem;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid #5b91ff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 70rem) {
+  .menu-toggle {
+    display: grid;
+    gap: 4px;
+  }
+
+  .menu-toggle span[aria-hidden] {
+    display: block;
+    width: 1.15rem;
+    height: 2px;
+    background: currentColor;
+  }
+
+  .site-menu {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: calc(100% + 0.45rem);
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.65rem;
+    background: var(--header-bg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+  }
+
+  .site-menu.open {
+    display: flex;
+  }
+
+  .site-menu > a {
+    padding: 0.72rem;
+  }
+
+  .site-menu > a::after {
+    display: none;
+  }
+
+  .theme-toggle {
+    margin: 0.3rem 0.45rem;
+  }
+}
+
+@media (max-width: 52rem) {
+  .shell {
+    width: min(calc(100% - 1.5rem), var(--max));
+  }
+
+  .hero {
+    min-height: 38rem;
+    background-position: 54% center;
+  }
+
+  .hero-content {
+    align-self: start;
+    padding-top: 4rem;
+  }
+
+  .hero h1 {
+    font-size: 2.9rem;
+  }
+
+  .hero p {
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: 3.5rem;
+  }
+
+  .intro-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .intro-photo-frame {
+    width: min(70vw, 18rem);
+    margin-inline: auto;
+  }
+
+  .link-columns {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2.2rem;
+  }
+
+  .link-columns article:nth-child(2) {
+    border-right: 0;
+  }
+
+  .link-columns p {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 34rem) {
+  .link-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .link-columns article {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding-block: 1.4rem;
+  }
+
+  .link-columns article:last-child {
+    border-bottom: 0;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+@media (max-width: 45rem) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+  }
+
+  .contact-heading {
+    margin-bottom: 2.5rem;
+  }
+
+  .education-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 52rem) {
+  .academy-page {
+    padding-block: 3.5rem;
+  }
+
+  .academy-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .academy-lessons {
+    grid-template-columns: 1fr;
+    padding: 1.25rem;
+  }
+
+  .academy-founder {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .academy-logo-frame {
+    width: min(80vw, 20rem);
+    margin-inline: auto;
+  }
+}
+
+.courses-page {
+  padding-block: 4.5rem;
+}
+
+.courses-header {
+  max-width: 50rem;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.courses-header > p:first-child {
+  margin-bottom: 0.35rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.courses-header h1 {
+  margin: 0 0 1.25rem;
+  font-family:
+    "Palatino Linotype",
+    Palatino,
+    "Book Antiqua",
+    serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.05;
+}
+
+.courses-header a,
+.courses-register a {
+  color: var(--accent);
+  font-weight: 700;
+  text-underline-offset: 0.2rem;
+}
+
+.course-list {
+  border-top: 1px solid var(--line);
+}
+
+.course {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  padding-block: 3rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.course h2,
+.course h3 {
+  font-family:
+    "Palatino Linotype",
+    Palatino,
+    "Book Antiqua",
+    serif;
+}
+
+.course h2 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
+  line-height: 1.2;
+}
+
+.course-details {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.course-details div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+}
+
+.course-details dt {
+  font-weight: 700;
+}
+
+.course-details dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+.course-outline h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.course-outline ol {
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.course-outline li + li {
+  margin-top: 0.45rem;
+}
+
+.course-outline-grouped h3:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+.course-note {
+  margin-top: 1.5rem;
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--accent);
+  background: var(--bg-alt);
+  color: var(--muted);
+}
+
+.courses-register {
+  margin: 3rem 0 1rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 52rem) {
+  .courses-page {
+    padding-block: 3.5rem;
+  }
+
+  .courses-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .course {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 34rem) {
+  .course-details div {
+    grid-template-columns: 1fr;
+    gap: 0.05rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
