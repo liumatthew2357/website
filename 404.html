@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Page Not Found | Matthew Liu</title>
+
+    <base id="site-base" href="/" />
+    <script>
+      if (window.location.hostname.endsWith("github.io")) {
+        document.getElementById("site-base").href = "/website/";
+      }
+    </script>
+
+    <script src="assets/js/theme-init.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="assets/js/main.js" defer></script>
+
+    <style>
+      .not-found-page {
+        display: grid;
+        place-items: center;
+        min-height: calc(100vh - 10rem);
+        padding-block: 5rem;
+        text-align: center;
+      }
+
+      .not-found-content {
+        max-width: 42rem;
+      }
+
+      .not-found-code {
+        margin: 0;
+        color: var(--accent);
+        font-family:
+          "Palatino Linotype",
+          Palatino,
+          "Book Antiqua",
+          serif;
+        font-size: clamp(3.5rem, 12vw, 7.5rem);
+        font-weight: 700;
+        line-height: 0.9;
+      }
+
+      .not-found-content h1 {
+        margin: 1.25rem 0 1rem;
+        font-size: clamp(2rem, 5vw, 3.25rem);
+      }
+
+      .not-found-content p:not(.not-found-code) {
+        margin: 0 auto;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Primary navigation">
+        <a class="brand" href="./">Matthew Liu</a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          <span class="sr-only">Open navigation</span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+        <div class="site-menu" id="site-menu">
+          <a href="./">Home</a>
+          <a href="education/">Education</a>
+          <a href="projects/">Projects</a>
+          <a href="speedcubing/">Speedcubing</a>
+          <a href="waterloo-cube-academy/">Waterloo Cube Academy</a>
+          <a href="more/">More</a>
+          <a href="contact/">Contact</a>
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to light theme"
+            title="Switch theme"
+          >
+            <span class="theme-icon" aria-hidden="true">☾</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="not-found-page section shell">
+      <div class="not-found-content">
+        <p class="not-found-code">
+          <span class="sr-only">Error 404:</span>
+          <span aria-hidden="true">2² × 101</span>
+        </p>
+        <h1>Page not found</h1>
+        <p>
+          The page you were looking for may have moved, or the address may be
+          incorrect.
+        </p>
+        <a class="button" href="./">Return home</a>
+      </div>
+    </main>
+
+    <footer class="footer shell">
+      <p>© 2026 Matthew Liu</p>
+      <p><a href="contact/">Contact</a></p>
+    </footer>
+  </body>
+</html>
