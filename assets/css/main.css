@@ -2071,6 +2071,137 @@ a.contact-icon:hover {
   }
 }
 
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+.ranking-table th,
+.ranking-table td {
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.ranking-table th {
+  background: var(--bg-alt);
+  font-weight: 700;
+}
+
+.ranking-table tbody tr:nth-child(even) {
+  background: var(--bg-alt);
+}
+
+.ranking-table th:first-child,
+.ranking-table td:first-child {
+  width: 3.5rem;
+  text-align: center;
+}
+
+.top-average-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  align-items: stretch;
+}
+
+.top-average-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.top-average-grid div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.top-average-grid span {
+  margin-top: 0.25rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.ranking-table {
+  min-width: 100%;
+}
+
+.ranking-table th,
+.ranking-table td {
+  white-space: nowrap;
+}
+
+.ranking-table th,
+.ranking-table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.ranking-table .actual-average {
+  font-weight: 700;
+  background: transparent;
+}
+
+.ranking-table tbody tr:nth-child(even) {
+  background: var(--bg-alt);
+}
+
+.top-average {
+  text-align: center;
+}
+
+.top-average h2 {
+  text-align: center;
+}
+
+.top-average-grid {
+  text-align: center;
+}
+
+.top-average-grid img {
+  display: block;
+  margin-inline: auto;
+}
+
+.top-average-grid div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ranking-table-group-single {
+  margin-top: 3rem;
+}
+
+@media (max-width: 900px) {
+  .top-average-grid {
+    grid-template-columns: repeat(5, minmax(8rem, 1fr));
+    overflow-x: auto;
+  }
+
+  .ranking-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 800px) {
+  .ranking-tables {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 34rem) {
   .course-details div {
     grid-template-columns: 1fr;
