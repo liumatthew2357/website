@@ -1781,6 +1781,281 @@ a.contact-icon:hover {
   font-size: 1.1rem;
 }
 
+.profile-directory {
+  width: min(100%, 48rem);
+  margin: 2.5rem auto 0;
+  text-align: left;
+}
+
+.profile-group {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.profile-group:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.profile-group h2 {
+  margin: 0;
+  color: var(--accent);
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+.profile-group ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-group a {
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.2rem;
+}
+
+.profile-group a:hover {
+  color: var(--accent);
+}
+
+.club-profile-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.75fr);
+  min-height: 22rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.club-profile-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+  background-color: var(--bg);
+  background-image: repeating-linear-gradient(
+    32deg,
+    transparent 0,
+    transparent 0.65rem,
+    var(--line) 0.68rem,
+    var(--line) 0.78rem
+  );
+}
+
+.club-profile-season {
+  width: fit-content;
+  margin: 0 0 0.75rem;
+  padding: 0.3rem 0.65rem;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.club-profile-details h1 {
+  max-width: 12ch;
+  margin: 0 0 1.5rem;
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.club-profile-summary-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.club-profile-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+.club-profile-summary-table th,
+.club-profile-summary-table td {
+  width: 33.333%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.club-profile-summary-table th {
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+.club-profile-summary-table td {
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.club-profile-photo {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+.club-profile-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 22rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.club-table-container {
+  width: 100%;
+  margin-top: 2rem;
+  overflow-x: auto;
+}
+
+.club-profile-section {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.club-section-heading {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.club-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.club-table th,
+.club-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.club-table thead th {
+  font-weight: 700;
+}
+
+.club-table tbody tr:nth-child(odd) {
+  background: var(--surface);
+}
+
+.club-table tbody th {
+  text-align: left;
+}
+
+.club-table a {
+  color: var(--accent);
+  font-weight: 700;
+  text-underline-offset: 0.2rem;
+}
+
+.club-records .section-heading,
+.club-results .section-heading {
+  text-align: center;
+}
+
+.club-event-results {
+  margin-top: 2.5rem;
+}
+
+.club-event-results h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+}
+
+.club-results-table {
+  min-width: 58rem;
+}
+
+.club-solves {
+  font-variant-numeric: tabular-nums;
+}
+
+.club-results-table {
+  min-width: 58rem;
+  table-layout: fixed;
+}
+
+.club-results-table .competition-column {
+  width: 30%;
+}
+
+.club-results-table .round-column {
+  width: 10%;
+}
+
+.club-results-table .place-column {
+  width: 8%;
+}
+
+.club-results-table .single-column {
+  width: 10%;
+}
+
+.club-results-table .average-column {
+  width: 10%;
+}
+
+.club-results-table .solves-column {
+  width: 32%;
+}
+
+@media (max-width: 38rem) {
+  .club-profile-image {
+    width: min(75vw, 15rem);
+  }
+
+  .club-table {
+    font-size: 0.88rem;
+  }
+
+  .club-table th,
+  .club-table td {
+    padding: 0.7rem 0.8rem;
+  }
+
+  .club-profile-card {
+    grid-template-columns: 1fr;
+  }
+
+  .club-profile-details {
+    min-height: 22rem;
+  }
+
+  .club-profile-photo {
+    min-height: 17rem;
+  }
+
+  .club-profile-photo img {
+    min-height: 17rem;
+  }
+
+  .club-profile-details h1 {
+    font-size: clamp(2.25rem, 12vw, 3.5rem);
+  }
+
+  .club-profile-summary-table {
+    min-width: 32rem;
+  }
+}
+
 @media (max-width: 52rem) {
   .courses-page {
     padding-block: 3.5rem;
