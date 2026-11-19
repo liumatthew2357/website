@@ -2071,192 +2071,291 @@ a.contact-icon:hover {
   }
 }
 
-.ranking-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid var(--line);
-  font-size: 0.95rem;
+/* =========================================================
+   UWaterloo Cubing Club
+   ========================================================= */
+
+.club-page .section-heading > p:last-child {
+  max-width: 46rem;
+  margin-inline: auto;
 }
 
-.ranking-table th,
-.ranking-table td {
-  padding: 0.75rem;
-  border: 1px solid var(--line);
-  text-align: left;
-  vertical-align: top;
+.club-action-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: min(100%, 54rem);
+  margin: 2rem auto 0;
 }
 
-.ranking-table th {
-  background: var(--bg-alt);
-  font-weight: 700;
-}
-
-.ranking-table tbody tr:nth-child(even) {
-  background: var(--bg-alt);
-}
-
-.ranking-table th:first-child,
-.ranking-table td:first-child {
-  width: 3.5rem;
+.club-action-grid .button {
+  display: flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.top-average-grid {
+.club-meeting-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.club-meeting-link {
+  display: flex;
+  min-height: 8rem;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  text-align: center;
+  text-decoration: none;
+}
+
+.club-meeting-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.club-meeting-link strong,
+.club-meeting-link span,
+.club-meeting-link small {
+  display: block;
+}
+
+.club-meeting-link span {
+  margin-top: 0.35rem;
+}
+
+.club-meeting-link small {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+.club-meeting-link.is-missing {
+  opacity: 0.72;
+}
+
+.club-leaders {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 1rem;
-  margin-top: 1.5rem;
-  align-items: stretch;
+  margin: 2.5rem 0 3rem;
 }
 
-.top-average-grid img {
+.club-leader {
+  display: flex;
+  flex-direction: column;
+  color: var(--text);
+  text-align: center;
+  text-decoration: none;
+}
+
+.club-leader img {
   display: block;
   width: 100%;
   aspect-ratio: 1;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--line);
   object-fit: cover;
-  border-radius: 0.5rem;
 }
 
-.top-average-grid div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem;
-  text-align: center;
+.club-leader:hover strong {
+  color: var(--accent);
 }
 
-.top-average-grid span {
+.club-leader span {
   margin-top: 0.25rem;
-  font-size: 1.2rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.standings-control {
+  display: grid;
+  gap: 0.5rem;
+  width: min(100%, 28rem);
+  margin: 0 auto 2rem;
+}
+
+.standings-control label {
   font-weight: 700;
 }
 
-.ranking-table {
-  min-width: 100%;
+.standings-control select {
+  width: 100%;
+  padding: 0.8rem 2.75rem 0.8rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  appearance: none;
+  background-color: var(--surface);
+  background-image: linear-gradient(45deg, transparent 50%, var(--text) 50%),
+    linear-gradient(135deg, var(--text) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 50%, calc(100% - 0.8rem) 50%;
+  background-repeat: no-repeat;
+  background-size: 0.4rem 0.4rem, 0.4rem 0.4rem;
+  color: var(--text);
+  font: inherit;
 }
 
-.ranking-table th,
-.ranking-table td {
-  white-space: nowrap;
-}
-
-.ranking-table th,
-.ranking-table td {
+.standings-panel h2 {
+  margin-bottom: 1.25rem;
   text-align: center;
-  vertical-align: middle;
+}
+
+.standings-panel[hidden] {
+  display: none;
+}
+
+.circuit-table,
+.ranking-table {
+  min-width: max-content;
+}
+
+.rank-change {
+  display: inline-block;
+  min-width: 3.25rem;
+  font-weight: 700;
+}
+
+.rank-change.is-up {
+  color: var(--accent);
+}
+
+.rank-change.is-down {
+  color: var(--muted);
+}
+
+.rank-change.is-new {
+  font-size: 0.85rem;
+  text-transform: uppercase;
 }
 
 .ranking-table .actual-average {
   font-weight: 700;
-  background: transparent;
 }
 
-.ranking-table tbody tr:nth-child(even) {
-  background: var(--bg-alt);
+.team-ranking-table {
+  min-width: 44rem;
 }
 
-.top-average {
+.team-ranking-table .team-members-cell {
+  min-width: 16rem;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.club-round-label {
+  margin: -0.35rem 0 1rem;
+  color: var(--muted);
   text-align: center;
 }
 
-.top-average h2 {
-  text-align: center;
-}
-
-.top-average-grid {
-  text-align: center;
-}
-
-.top-average-grid img {
-  display: block;
-  margin-inline: auto;
-}
-
-.top-average-grid div {
-  display: flex;
+.club-attempts {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(4.25rem, auto);
   align-items: center;
-  justify-content: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.club-attempts span {
   text-align: center;
 }
 
-.ranking-table-group-single {
-  margin-top: 3rem;
+/* Meeting and profile result tables */
+.club-results-table {
+  min-width: 54rem;
+  table-layout: fixed;
 }
 
-.circuit-sheet-section {
-  margin-top: 3rem;
+.club-results-table .place-column,
+.club-results-table .place-cell {
+  width: 4rem;
+  padding-inline: 0.45rem;
 }
 
-.circuit-sheet-section .section-heading {
-  margin-bottom: 1.5rem;
+.club-results-table .uw-rank-column,
+.club-results-table .uw-rank-cell {
+  width: 4.5rem;
+  padding-inline: 0.45rem;
+}
+
+.club-results-table .name-column {
+  width: 11rem;
+}
+
+.club-results-table .single-column,
+.club-results-table .single-cell,
+.club-results-table .average-column,
+.club-results-table .average-cell {
+  width: 6rem;
+}
+
+.club-results-table .attempts-column,
+.club-results-table .attempts-cell {
+  width: 24rem;
+}
+
+.club-results-table.has-team-members {
+  min-width: 68rem;
+}
+
+.club-results-table .team-members-column,
+.club-results-table .team-members-cell {
+  width: 18rem;
+}
+
+.club-results-table .team-name-cell,
+.club-results-table .team-members-cell {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.club-profile-results-table .meeting-column {
+  width: 15rem;
+}
+
+.club-profile-results-table:not(.has-team-members) {
+  min-width: 55rem;
+}
+
+.club-profile-results-table.has-team-members {
+  min-width: 67rem;
+}
+
+.club-peak-rank {
+  margin: 1rem 0 0;
+  font-weight: 600;
+}
+
+.empty-state {
   text-align: center;
 }
 
-.circuit-sheet-embed {
-  width: 76%;
-  height: min(75vh, 900px);
-  min-height: 620px;
-  margin-inline: auto;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  background: var(--surface);
-}
-
-.circuit-sheet-embed iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.circuit-sheet-link {
-  margin-top: 1rem;
-  text-align: center;
-}
-
-.circuit-sheet-mobile {
-  display: none;
-  text-align: center;
-}
-
-/* Show a simple link instead of the spreadsheet on phones */
-@media (max-width: 700px) {
-  .circuit-sheet-embed,
-  .circuit-sheet-link {
-    display: none;
-  }
-
-  .circuit-sheet-mobile {
-    display: block;
-    padding: 1.5rem;
-    border: 1px solid var(--border);
-    border-radius: 0.5rem;
-    background: var(--surface);
-  }
-
-  .circuit-sheet-mobile p {
-    margin: 0 0 1rem;
-  }
-}
-
-
-@media (max-width: 900px) {
-  .top-average-grid {
-    grid-template-columns: repeat(5, minmax(8rem, 1fr));
+@media (max-width: 58rem) {
+  .club-leaders {
+    grid-template-columns: repeat(5, minmax(9rem, 1fr));
+    padding-bottom: 0.75rem;
     overflow-x: auto;
   }
 
-  .ranking-table {
-    display: block;
-    overflow-x: auto;
+  .club-meeting-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 800px) {
-  .ranking-tables {
+@media (max-width: 42rem) {
+  .club-action-grid,
+  .club-meeting-grid {
     grid-template-columns: 1fr;
+  }
+
+  .club-meeting-link {
+    min-height: 6.5rem;
   }
 }
 
@@ -2273,8 +2372,3 @@ a.contact-icon:hover {
   }
 }
 
-@media (max-width: 1000px) {
-  .circuit-sheet-embed {
-    width: 100%;
-  }
-}
